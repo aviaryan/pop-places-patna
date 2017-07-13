@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Popular Places in Patna</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-	Hi
-	How are you?
 
+	<div id="app">
+		<div id="left">
+			<div class="search">
+				<input type="text" class="search" id="search">
+			</div>
+			<ul data-bind="foreach: places">
+				<li>
+					<span data-bind="text: name"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div id="right">
+		</div>
+
+	</div>
+
+	<script src="dist/vendor.bundle.js"></script>
 	<script src="dist/bundle.js"></script>
 
 </body>
