@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<title>Popular Places in Patna</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -13,7 +13,7 @@
 	<div id="app">
 		<div id="left">
 			<div class="search">
-				<input type="text" class="search" id="search">
+				<input type="text" class="search" id="search" data-bind="textInput: searchTerm, valueUpdate: ['afterkeydown', 'input']">
 			</div>
 			<ul data-bind="foreach: places">
 				<li>

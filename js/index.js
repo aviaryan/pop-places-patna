@@ -26,9 +26,20 @@ var places = [
 ];
 
 // setup our ViewModel
-var viewModel = {
-	places: places
+function ViewModel() {
+	this.searchTerm = ko.observable('');
+
+	this.places = ko.computed(function() {
+		if (!this.searchTerm()) {
+			return places;
+		}
+		var filter = this.searchTerm().toLowerCase();
+		return ko.utils.arrayFilter(places, function(p) {
+      return p.name.toLowerCase().search(filter) > -1;
+    });
+	}, this);
+
 };
 
 // apply KO bindings
-ko.applyBindings(viewModel);
+ko.applyBindings(new ViewModel());
