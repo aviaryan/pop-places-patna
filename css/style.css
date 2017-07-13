@@ -1,4 +1,4 @@
-body {
+html, body {
 	margin: 0 auto 0 auto;
 	max-width: 1000px;
 	height: 100%;
@@ -19,11 +19,15 @@ body {
 }
 
 #right {
-	background-color: black;
+	/*background-color: black;*/
 	flex-basis: 70%;
 }
 
 #left .search {
 	font-size: 1em;
 	width: 100%;
+}
+
+#map {
+	height: 100%;
 }
