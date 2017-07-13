@@ -3,7 +3,7 @@ const webpack = require('webpack')
 module.exports = {
   entry: {
   	app: './js/index.js',
-  	vendor: ['knockout']
+  	vendor: ['knockout', 'jquery']
   },
   output: {
   	path: __dirname + '/dist',
@@ -21,7 +21,7 @@ module.exports = {
 			beautify: false,
 			mangle: {
 				screw_ie8: true,
-				keep_fnames: true
+				keep_fnames: false
 			},
 			compress: {
 				screw_ie8: true

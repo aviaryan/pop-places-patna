@@ -1,6 +1,10 @@
 // import ko
 var ko = require('knockout');
 
+var secret = require('./secret.js');
+
+var jquery = require('jquery');
+
 // initalize vars
 var map;
 
@@ -72,15 +76,49 @@ initMap = function() {
 		// save it in places
 		place.marker = marker;
 		place.infowindow = infowindow;
+		// get foursquare data
+		getFoursquareData(place);
 	});
 }
 
+/*
+ * closeInfoWindows closes all info windows
+ */
 function closeInfoWindows() {
 	places.forEach(function(place) {
 		if (place.infowindow !== undefined){
 			place.infowindow.close();
 		}
 	});
+}
+
+function getFoursquareData(place) {
+	var url = 'https://api.foursquare.com/v2/venues/search?v=20161016';
+	url += '&client_id=' + secret.clientID;
+	url += '&client_secret=' + secret.clientSecret;
+	url += '&ll=' + place.lat + ',' + place.lng;
+	url += '&query=' + place.name;
+	// send request
+	jquery.getJSON(url)
+		.done(function(data) {
+			// var body = JSON.parse(response.body);
+			var venue = data.response.venues[0];
+
+			var html = '<b>' + place.name + '</b><br>';
+			// get category
+			if (venue.categories.length > 0){
+				html += '<b>Category:</b> ' + venue.categories[0].name + '<br>';
+			}
+			// get address
+			if (venue.location.address !== undefined){
+				html += '<b>Address:</b> ' + venue.location.address;
+			}
+			// update infowindow
+			place.infowindow.setContent(html);
+		})
+		.fail(function(jqxhr, textStatus, error) {
+			console.log(textStatus + ' ' + error);
+		})
 }
 
 // setup our ViewModel
