@@ -57,14 +57,29 @@ initMap = function() {
 			map: map,
 			title: place.name
 		});
+		// set info window
+		var infowindow = new google.maps.InfoWindow({
+			content: place.name
+		});
 		marker.addListener('click', function(){
 			marker.setAnimation(google.maps.Animation.BOUNCE);
+			closeInfoWindows(); // close old info windows
+			infowindow.open(map, marker);
 			setTimeout(function() {
 				marker.setAnimation(null);
 			}, 1400);
 		});
 		// save it in places
 		place.marker = marker;
+		place.infowindow = infowindow;
+	});
+}
+
+function closeInfoWindows() {
+	places.forEach(function(place) {
+		if (place.infowindow !== undefined){
+			place.infowindow.close();
+		}
 	});
 }
 
