@@ -59,7 +59,21 @@ html, body {
 @media all and (max-width: 960px) {
 	#app {
 		flex-direction: column;
-		height: 100%;
+	}
+
+	#left ul {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	#left li {
+		width: 33%;
 	}
 }
 
+@media all and (max-width: 640px) {
+	#left li {
+		width: 50%;
+	}
+}
