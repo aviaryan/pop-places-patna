@@ -1,6 +1,6 @@
 html, body {
 	margin: 0 auto 0 auto;
-	max-width: 1000px;
+	max-width: 1100px;
 	height: 100%;
 	font-family: 'Roboto', sans-serif;
 	background-color: lightgrey;
@@ -15,12 +15,12 @@ html, body {
 }
 
 #left {
-	flex-basis: 30%;
+	flex-basis: 25%;
 }
 
 #right {
 	/*background-color: black;*/
-	flex-basis: 70%;
+	flex-basis: 75%;
 }
 
 #left .search {
