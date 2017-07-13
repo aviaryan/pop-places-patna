@@ -4,39 +4,70 @@ var ko = require('knockout');
 // initalize vars
 var map;
 
-// load map
-initMap = function() {
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 25.602961, lng: 85.158076},
-		zoom: 14
-	});
-}
-
 // places stores the list of places one can visit in Patna
 var places = [
 	{
-		name: 'Gol Ghar'
+		name: 'Gol Ghar',
+		lat: 25.620589,
+		lng: 85.139459
 	},
 	{
-		name: 'Museum'
+		name: 'Patna Museum',
+		lat: 25.612672,
+		lng: 85.133243
 	},
 	{
-		name: 'Zoo'
+		name: 'Zoo',
+		lat: 25.597420,
+		lng: 85.100288
+	},
+	{
+		name: 'Buddha Smriti Park',
+		lat: 25.606386,
+		lng: 85.137062
+	},
+	{
+		name: 'Pind Balluchi',
+		lat: 25.617460,
+		lng: 85.140837
 	}
 ];
+
+// load map
+// initMap defined globally to bypass an issue
+initMap = function() {
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: 25.604961, lng: 85.128076},
+		zoom: 14
+	});
+
+	places.forEach(function(place) {
+		place.marker = new google.maps.Marker({
+			position: {lat: place.lat, lng: place.lng},
+			map: map,
+			title: place.name
+		});
+	});
+}
 
 // setup our ViewModel
 function ViewModel() {
 	this.searchTerm = ko.observable('');
 
 	this.places = ko.computed(function() {
-		if (!this.searchTerm()) {
-			return places;
-		}
 		var filter = this.searchTerm().toLowerCase();
 		return ko.utils.arrayFilter(places, function(p) {
-      return p.name.toLowerCase().search(filter) > -1;
-    });
+			var match = (p.name.toLowerCase().search(filter) > -1) || (filter == '');
+			if (p.marker === undefined){
+				return match;
+			}
+			if (match){
+				p.marker.setMap(map);
+			} else {
+				p.marker.setMap(null);
+			}
+			return match;
+		});
 	}, this);
 
 };
