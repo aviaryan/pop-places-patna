@@ -12,10 +12,18 @@ html, body {
 	height: 100%;
 	align-items: stretch;
 	flex-direction: row;
+	background-color: white;
+	padding: 0 1em 0 1em;
 }
 
 #left {
 	flex-basis: 25%;
+	padding-top: 1em;
+	background-color: white;
+}
+
+#mid {
+	width: 1em;
 }
 
 #right {
@@ -26,6 +34,18 @@ html, body {
 #left .search {
 	font-size: 1em;
 	width: 100%;
+}
+
+#left ul {
+	margin: 0.5em 0 0 0;
+	padding-left: 0;
+}
+
+#left li {
+	width: 100%;
+	list-style: none;
+	border-bottom: 1px solid lightgrey;
+	padding: 0.5em 0 0.5em 0;
 }
 
 #map {

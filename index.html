@@ -13,7 +13,8 @@
 	<div id="app">
 		<div id="left">
 			<div class="search">
-				<input type="text" class="search" id="search" data-bind="textInput: searchTerm, valueUpdate: ['afterkeydown', 'input']">
+				<input type="text" class="search" id="search" placeholder="Filter"
+					data-bind="textInput: searchTerm, valueUpdate: ['afterkeydown', 'input']">
 			</div>
 			<ul data-bind="foreach: places">
 				<li>
@@ -21,6 +22,8 @@
 				</li>
 			</ul>
 		</div>
+
+		<div id="mid"></div>
 
 		<div id="right">
 			<div id="map">
