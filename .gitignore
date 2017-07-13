@@ -2,3 +2,5 @@
 .DS_Store
 /bower_components
 /dist
+# my project notes
+/notes.md
