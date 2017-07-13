@@ -51,7 +51,7 @@ var places = [
 // initMap defined globally to bypass an issue
 initMap = function() {
 	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 25.613861, lng: 85.124076},
+		center: {lat: 25.619861, lng: 85.124076},
 		zoom: 14
 	});
 
