@@ -17,7 +17,7 @@ var places = [
 		lng: 85.133243
 	},
 	{
-		name: 'Zoo',
+		name: 'Patna Zoo',
 		lat: 25.597420,
 		lng: 85.100288
 	},
@@ -30,6 +30,16 @@ var places = [
 		name: 'Pind Balluchi',
 		lat: 25.617460,
 		lng: 85.140837
+	},
+	{
+		name: 'Gandhi Maidan',
+		lat: 25.618783,
+		lng: 85.145060
+	},
+	{
+		name: 'P & M Mall',
+		lat: 25.634139,
+		lng: 85.106177
 	}
 ];
 
@@ -37,7 +47,7 @@ var places = [
 // initMap defined globally to bypass an issue
 initMap = function() {
 	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 25.604961, lng: 85.128076},
+		center: {lat: 25.613861, lng: 85.124076},
 		zoom: 14
 	});
 
