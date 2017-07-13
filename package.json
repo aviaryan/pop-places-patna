@@ -1,0 +1,20 @@
+{
+  "name": "pop-places-patna",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Popular places in patna",
+  "main": "index.html",
+  "author": "Avi Aryan <avi.aryan123@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "knockout": "^3.4.2"
+  },
+  "devDependencies": {
+    "webpack": "^2.7.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors --hot --config ./webpack.dev.js",
+    "build": "webpack -p --config ./webpack.prod.js"
+  }
+}
