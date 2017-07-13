@@ -42,11 +42,19 @@ initMap = function() {
 	});
 
 	places.forEach(function(place) {
-		place.marker = new google.maps.Marker({
+		var marker = new google.maps.Marker({
 			position: {lat: place.lat, lng: place.lng},
 			map: map,
 			title: place.name
 		});
+		marker.addListener('click', function(){
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+			setTimeout(function() {
+				marker.setAnimation(null);
+			}, 1400);
+		});
+		// save it in places
+		place.marker = marker;
 	});
 }
 
