@@ -42,9 +42,6 @@ function loadPlaces() {
 		marker.addListener('click', function(){
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 			closeInfoWindows(); // close old info windows
-			// zoom to location
-			map.setZoom(15);
-			map.panTo(marker.getPosition());
 			// open infowindow
 			infowindow.open(map, marker);
 			setTimeout(function() {
@@ -107,6 +104,9 @@ function ViewModel() {
 	this.itemClick = function(place) {
 		if (place.marker !== undefined) {
 			google.maps.event.trigger(place.marker, 'click');
+			// zoom to location (don't do it when manual click on marker)
+			map.setZoom(15);
+			map.panTo(place.marker.getPosition());
 		}
 	};
 
