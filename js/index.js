@@ -54,7 +54,13 @@ initMap = function() {
 		center: {lat: 25.619861, lng: 85.124076},
 		zoom: 14
 	});
+	loadPlaces();
+}
 
+/*
+ * loadPlaces loads all the markers at places
+ */
+function loadPlaces() {
 	places.forEach(function(place) {
 		var marker = new google.maps.Marker({
 			position: {lat: place.lat, lng: place.lng},
@@ -117,6 +123,8 @@ function getFoursquareData(place) {
 			place.infowindow.setContent(html);
 		})
 		.fail(function(jqxhr, textStatus, error) {
+			// set in infowindow as fetching foursquare data happens in the background
+			place.infowindow.setContent('Error when fetching details. See console for more info.');
 			console.log(textStatus + ' ' + error);
 		})
 }
@@ -130,6 +138,7 @@ function ViewModel() {
 		return ko.utils.arrayFilter(places, function(p) {
 			var match = (p.name.toLowerCase().search(filter) > -1) || (filter == '');
 			if (p.marker === undefined){
+				// can't set marker now
 				return match;
 			}
 			if (match){
