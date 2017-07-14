@@ -108,11 +108,7 @@ function ViewModel() {
 				// can't set marker now
 				return match;
 			}
-			if (match){
-				p.marker.setMap(map);
-			} else {
-				p.marker.setMap(null);
-			}
+			p.marker.setMap(match ? map : null);
 			return match;
 		});
 	}, this);
