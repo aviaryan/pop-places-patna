@@ -4,7 +4,7 @@ var jquery = require('jquery');
 // secret stores foursquare credential
 var secret = require('./secret.js');
 // places stores the list of places one can visit in Patna
-var places = require('./places.js')
+var places = require('./places.js');
 
 // initalize global map var
 var map;
@@ -17,7 +17,7 @@ initMap = function() {
 		zoom: 14
 	});
 	loadPlaces();
-}
+};
 
 /*
  * loadPlaces loads all the markers at places
@@ -87,7 +87,7 @@ function getFoursquareData(place) {
 			// set in infowindow as fetching foursquare data happens in the background
 			place.infowindow.setContent('Error when fetching details. See console for more info.');
 			console.log(textStatus + ' ' + error);
-		})
+		});
 }
 
 // setup our ViewModel
@@ -103,7 +103,7 @@ function ViewModel() {
 	this.places = ko.computed(function() {
 		var filter = this.searchTerm().toLowerCase();
 		return ko.utils.arrayFilter(places, function(p) {
-			var match = (p.name.toLowerCase().search(filter) > -1) || (filter == '');
+			var match = (p.name.toLowerCase().search(filter) > -1) || (filter === '');
 			if (p.marker === undefined){
 				// can't set marker now
 				return match;
@@ -115,7 +115,7 @@ function ViewModel() {
 
 	// no need to keep this as observable as it is constant
 	this.atrb = 'This application uses Foursquare';
-};
+}
 
 // apply KO bindings
 ko.applyBindings(new ViewModel());
