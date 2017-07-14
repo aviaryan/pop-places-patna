@@ -6,6 +6,8 @@
 To run this project now, you can just open `index.html` and it will work as the build has been already done.
 Foursquare keys have been setup in this build.
 
+PS - See [this SO thread](https://stackoverflow.com/questions/32434686/) if you see a `ERR_BLOCKED_BY_CLIENT` error.
+
 
 ## Development setup
 
