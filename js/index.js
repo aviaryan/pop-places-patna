@@ -38,13 +38,13 @@ function loadPlaces() {
 			closeInfoWindows(); // close old info windows
 			infowindow.open(map, marker);
 			setTimeout(function() {
-				marker.setAnimation(null);
+				marker.setAnimation(null); // disable animation after some time
 			}, 1400);
 		});
 		// save it in places
 		place.marker = marker;
 		place.infowindow = infowindow;
-		// get foursquare data
+		// get foursquare data asynchronously
 		getFoursquareData(place);
 	});
 }
@@ -69,7 +69,6 @@ function getFoursquareData(place) {
 	// send request
 	jquery.getJSON(url)
 		.done(function(data) {
-			// var body = JSON.parse(response.body);
 			var venue = data.response.venues[0];
 
 			var html = '<b>' + place.name + '</b><br>';

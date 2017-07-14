@@ -11,11 +11,19 @@ Foursquare keys have been setup in this build.
 
 * Setup [Foursquare](https://foursquare.com/) credentials in `js/secret.js`.
 
-* Then run the following -
+* Then run the following to start development server.
 
 ```sh
 yarn install
 yarn start
+```
+
+* Visit at http://localhost:8080
+
+* To make production builds, run:
+
+```sh
+yarn build
 ```
 
 
