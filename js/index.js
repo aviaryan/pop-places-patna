@@ -12,12 +12,18 @@ var map;
 // load map
 // initMap defined globally to bypass an issue
 initMap = function() {
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 25.619861, lng: 85.124076},
-		zoom: 14
-	});
+	map = new google.maps.Map(document.getElementById('map'), {});
+	panToDefault();
 	loadPlaces();
 };
+
+// panToDefault pans to the default map view
+function panToDefault() {
+	if (map !== undefined){
+		map.setZoom(14);
+		map.panTo({lat: 25.619861, lng: 85.124076});
+	}
+}
 
 /*
  * loadPlaces loads all the markers at places
@@ -36,6 +42,10 @@ function loadPlaces() {
 		marker.addListener('click', function(){
 			marker.setAnimation(google.maps.Animation.BOUNCE);
 			closeInfoWindows(); // close old info windows
+			// zoom to location
+			map.setZoom(15);
+			map.panTo(marker.getPosition());
+			// open infowindow
 			infowindow.open(map, marker);
 			setTimeout(function() {
 				marker.setAnimation(null); // disable animation after some time
@@ -102,6 +112,8 @@ function ViewModel() {
 
 	this.places = ko.computed(function() {
 		var filter = this.searchTerm().toLowerCase();
+		panToDefault(); // to make sure filtered items are visible in map
+		closeInfoWindows(); // doesn't look nice
 		return ko.utils.arrayFilter(places, function(p) {
 			var match = (p.name.toLowerCase().search(filter) > -1) || (filter === '');
 			if (p.marker === undefined){
