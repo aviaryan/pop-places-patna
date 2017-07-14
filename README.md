@@ -9,6 +9,8 @@ Foursquare keys have been setup in this build.
 
 ## Development setup
 
+The project was built on `node v8.1.4` and `yarn v0.27.5`. The steps are -
+
 * Setup [Foursquare](https://foursquare.com/) credentials in `js/secret.js`.
 
 * Then run the following to start development server.
