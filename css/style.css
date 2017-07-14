@@ -20,6 +20,8 @@ html, body {
 #left {
 	flex-basis: 15em;
 	padding-top: 1em;
+	display: flex;
+	flex-direction: column;
 	background-color: white;
 }
 
@@ -28,7 +30,6 @@ html, body {
 }
 
 #right {
-	/*background-color: black;*/
 	flex-basis: 100%;
 }
 
@@ -53,6 +54,19 @@ html, body {
 	cursor: pointer;
 }
 
+.flex-space {
+	flex-basis: 100%;
+}
+
+.attr, .attr-responsive {
+	font-size: 0.8em;
+	color: grey;
+}
+
+.attr-responsive {
+	display: none;
+}
+
 #map {
 	height: 100%;
 }
@@ -63,6 +77,14 @@ html, body {
 @media all and (max-width: 960px) {
 	#app {
 		flex-direction: column;
+	}
+
+	.attr {
+		display: none;
+	}
+
+	.attr-responsive {
+		display: block;
 	}
 
 	#left ul {

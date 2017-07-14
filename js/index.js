@@ -116,6 +116,9 @@ function ViewModel() {
 			return match;
 		});
 	}, this);
+
+	// no need to keep this as observable as it is constant
+	this.atrb = 'This application uses Foursquare';
 };
 
 // apply KO bindings

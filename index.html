@@ -19,6 +19,8 @@
 			<ul data-bind="foreach: places">
 				<li data-bind="text: name, click: $parent.itemClick"></li>
 			</ul>
+			<div class="flex-space"></div>
+			<div class="attr" data-bind="text: atrb"></div>
 		</div>
 
 		<div id="mid"></div>
@@ -29,6 +31,7 @@
 			</div>
 		</div>
 
+		<div class="attr-responsive" data-bind="text: atrb"></div>
 	</div>
 
 	<script type="text/javascript">
