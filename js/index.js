@@ -1,51 +1,13 @@
-// import ko
+// import libraries
 var ko = require('knockout');
-
-var secret = require('./secret.js');
-
 var jquery = require('jquery');
-
-// initalize vars
-var map;
-
+// secret stores foursquare credential
+var secret = require('./secret.js');
 // places stores the list of places one can visit in Patna
-var places = [
-	{
-		name: 'Gol Ghar',
-		lat: 25.620589,
-		lng: 85.139459
-	},
-	{
-		name: 'Patna Museum',
-		lat: 25.612672,
-		lng: 85.133243
-	},
-	{
-		name: 'Patna Zoo',
-		lat: 25.597420,
-		lng: 85.100288
-	},
-	{
-		name: 'Buddha Smriti Park',
-		lat: 25.606386,
-		lng: 85.137062
-	},
-	{
-		name: 'Pind Balluchi',
-		lat: 25.617460,
-		lng: 85.140837
-	},
-	{
-		name: 'Gandhi Maidan',
-		lat: 25.618783,
-		lng: 85.145060
-	},
-	{
-		name: 'P & M Mall',
-		lat: 25.634139,
-		lng: 85.106177
-	}
-];
+var places = require('./places.js')
+
+// initalize global map var
+var map;
 
 // load map
 // initMap defined globally to bypass an issue
