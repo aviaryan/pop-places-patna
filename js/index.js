@@ -95,6 +95,12 @@ function getFoursquareData(place) {
 function ViewModel() {
 	this.searchTerm = ko.observable('');
 
+	this.itemClick = function(place) {
+		if (place.marker !== undefined) {
+			google.maps.event.trigger(place.marker, 'click');
+		}
+	};
+
 	this.places = ko.computed(function() {
 		var filter = this.searchTerm().toLowerCase();
 		return ko.utils.arrayFilter(places, function(p) {
@@ -111,7 +117,6 @@ function ViewModel() {
 			return match;
 		});
 	}, this);
-
 };
 
 // apply KO bindings

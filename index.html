@@ -17,9 +17,7 @@
 					data-bind="textInput: searchTerm, valueUpdate: ['afterkeydown', 'input']">
 			</div>
 			<ul data-bind="foreach: places">
-				<li>
-					<span data-bind="text: name"></span>
-				</li>
+				<li data-bind="text: name, click: $parent.itemClick"></li>
 			</ul>
 		</div>
 
