@@ -1,17 +1,17 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-  	app: './js/index.js',
-  	vendor: ['knockout', 'jquery']
-  },
-  output: {
-  	path: __dirname + '/dist',
+	entry: {
+		app: './js/index.js',
+		vendor: ['knockout', 'jquery']
+	},
+	output: {
+		path: __dirname + '/dist',
 		publicPath: '/dist/',
-    filename: 'bundle.js'
-  },
+		filename: 'bundle.js'
+	},
 
-  plugins: [
+	plugins: [
 		// minify: https://webpack.js.org/guides/production-build/
 		new webpack.LoaderOptionsPlugin({
 			minimize: true,
@@ -31,4 +31,4 @@ module.exports = {
 		// vendor: https://webpack.github.io/docs/code-splitting.html#split-app-and-vendor-code
 		new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.bundle.js'})
 	]
-}
+};
