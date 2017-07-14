@@ -108,7 +108,7 @@ function ViewModel() {
 				// can't set marker now
 				return match;
 			}
-			p.marker.setMap(match ? map : null);
+			p.marker.setVisible(match ? true : false);
 			return match;
 		});
 	}, this);
@@ -116,6 +116,12 @@ function ViewModel() {
 	// no need to keep this as observable as it is constant
 	this.atrb = 'This application uses Foursquare';
 }
+
+// mapLoadError shows error when google maps failed to load
+// to have this run, disconnect your internet and refresh the page
+mapLoadError = function() {
+	alert('Google maps failed to load. Please try reloading the page.');
+};
 
 // apply KO bindings
 ko.applyBindings(new ViewModel());

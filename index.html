@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>Popular Places in Patna</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -34,13 +34,15 @@
 		<div class="attr-responsive" data-bind="text: atrb"></div>
 	</div>
 
-	<script type="text/javascript">
-		// issue with callBack not being global in async load of google maps
+	<script>
+		// issue with callbacks not being global in async load of a script
 		var initMap;
+		var mapLoadError;
 	</script>
 	<script src="dist/vendor.bundle.js"></script>
 	<script src="dist/bundle.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIZHxg9W7R4dD9_mYWi4rj1PdjDS6tEW4&callback=initMap" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIZHxg9W7R4dD9_mYWi4rj1PdjDS6tEW4&callback=initMap"
+		onerror="mapLoadError()" async defer></script>
 
 </body>
 
