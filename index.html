@@ -11,7 +11,7 @@
 <body>
 
 	<div id="app">
-		<div id="left">
+		<aside id="left">
 			<div class="search">
 				<input type="text" class="search" id="search" placeholder="Filter"
 					data-bind="textInput: searchTerm, valueUpdate: ['afterkeydown', 'input']">
@@ -21,17 +21,17 @@
 			</ul>
 			<div class="flex-space"></div> <!-- this element stops `left` height change in mobile screens -->
 			<div class="attr" data-bind="text: atrb"></div>
-		</div>
+		</aside>
 
 		<div id="mid"></div>
 
-		<div id="right">
+		<main id="right">
 			<div id="map">
 				Please wait. Map is loading..
 			</div>
-		</div>
+		</main>
 
-		<div class="attr-responsive" data-bind="text: atrb"></div>
+		<section class="attr-responsive" data-bind="text: atrb"></section>
 	</div>
 
 	<script>
