@@ -2,6 +2,8 @@
 
 This website shows a list of popular places in Patna.
 
+http://aviaryan.in/pop-places-patna/
+
 
 ## Screenshot
 
