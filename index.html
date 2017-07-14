@@ -19,7 +19,7 @@
 			<ul data-bind="foreach: places">
 				<li data-bind="text: name, click: $parent.itemClick"></li>
 			</ul>
-			<div class="flex-space"></div>
+			<div class="flex-space"></div> <!-- this element stops `left` height change in mobile screens -->
 			<div class="attr" data-bind="text: atrb"></div>
 		</div>
 

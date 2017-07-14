@@ -1,5 +1,12 @@
 # Popular places in Patna
 
+This website shows a list of popular places in Patna.
+
+
+## Screenshot
+
+![screenshot](https://i.imgur.com/r3mQ7Mc.png)
+
 
 ## Running
 
